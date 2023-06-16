@@ -1,0 +1,32 @@
+ion-card{
+  border-radius: 10px;
+  padding: 5%;
+
+  ion-img{
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h2{
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+}
+
+form{
+  margin-top: 0.5em;
+
+  ion-input{
+    margin-bottom: 0.5em;
+  }
+  ion-textarea{
+    margin-bottom: 0.5em;
+  }
+  ion-button{
+    width: 99%;
+    font-weight: bold;
+  }
+}
+
+}

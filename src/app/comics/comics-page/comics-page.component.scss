@@ -1,0 +1,30 @@
+#mainIndex {
+  margin-top: 2em;
+  margin-bottom: 3em;
+
+  aside {
+    color: white;
+    font-family: "Aboreto", cursive;
+    font-size: 0.7em;
+  }
+
+  #contenido {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+  }
+}
+
+.nonUsers{
+  color: white;
+  font-size: larger;
+}
+
+@media screen and (min-width: 1400px) {
+  // #mainIndex {
+
+  // }
+}

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contacto:</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img src="assets/Iconos/icono_correo.png" alt="Contacto"></ion-img>
+    <ion-text color="principal">
+      <h2>CONTÁCTENOS:</h2>
+    </ion-text>
+    <form (ngSubmit)="sendMail()" #contactForm="ngForm">
+      <ion-input color="principal" name="name" [(ngModel)]="name" label="Nombre" #nameModel="ngModel"
+        label-placement="floating" fill="outline" placeholder="Nombre Apellido"></ion-input>
+      <ion-input color="principal" name="email" [(ngModel)]="email" label="Email" label-placement="floating"
+        fill="outline" placeholder="ejemplo@gmail.com" required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></ion-input>
+      <ion-textarea color="principal" name="message" [(ngModel)]="message" label="Mensaje" labelPlacement="floating"
+        fill="outline" placeholder="Escribe aqui tu mensaje ..."></ion-textarea>
+      <ion-button color="principal" type="submit" [disabled]="contactForm.invalid">Enviar</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

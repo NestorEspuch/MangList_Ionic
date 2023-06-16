@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Usuarios:</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar comic o usuario ..." (keydown.enter)="search($event)" ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #pageTop>
+
+  <ion-refresher #refresher slot="fixed" (ionRefresh)="reloadUsers(refresher)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card>
+    <ion-grid id="contenido">
+      <ml-user-card *ngFor="let user of users | usersFilter: toSearch" [user]="user"></ml-user-card>
+    </ion-grid>
+  </ion-card>
+
+</ion-content>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button color="principal">
+    <ion-icon name="arrow-up" (click)="pageScroller()"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

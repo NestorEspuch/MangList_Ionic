@@ -1,0 +1,14 @@
+<ion-card *ngIf="comic._id" style="margin-left: auto; margin-right: auto;">
+  <ion-img *ngIf="comic.main_picture !== undefined" [routerLink]="['/comics',comic._id]" alt="{{comic.title}}" src="{{comic.main_picture.medium}}" />
+  <ion-card-header>
+    <ion-card-subtitle [ngStyle]="{'opacity': isNew() ? '1' : '0'}" class="nuevo">Nuevo</ion-card-subtitle>
+    <ion-card-title>{{returnNameComic()}}</ion-card-title>
+  </ion-card-header>
+</ion-card>
+
+<ion-card *ngIf="comic.id" style="margin-left: auto; margin-right: auto;">
+  <ion-img *ngIf="comic.main_picture !== undefined" [routerLink]="['/comics',comic.id]" alt="{{comic.title}}" src="{{comic.main_picture.medium}}" />
+  <ion-card-header>
+    <ion-card-title>{{returnNameComic()}}</ion-card-title>
+  </ion-card-header>
+</ion-card>

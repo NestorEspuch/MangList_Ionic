@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="!comic">Detalles comic:</ion-title>
+    <ion-title *ngIf="comic">{{comic.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="comic">
+    <ion-img alt="{{comic.title}}" src="{{comic.main_picture.medium}}"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Puntuación: <span>{{comic.mean}}</span></ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{comic.synopsis}}
+    </ion-card-content>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>Categoría:</ion-col>
+        <ion-col *ngFor="let generos of comic.genres">{{generos.name}}</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>Capitulos:</ion-col>
+        <ion-col>{{comic.num_volumes}}</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>Año de serialización:</ion-col>
+        <ion-col>{{comic.start_date}}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-button color="principal" (click)="addToFavorites()" *ngIf="!inFav">Añadir a favoritos</ion-button>
+      <ion-button color="principal" (click)="deleteFronFavorites()" *ngIf="inFav">Quitar de favoritos</ion-button>
+      <ion-button color="principal" (click)="savelastComicRead()">Leer capitulos</ion-button>
+      <ion-button color="principal" (click)="goToEditComic()" *ngIf="haveRoleToEditComic">Editar comic</ion-button>
+    </ion-item>
+  </ion-card>
+  <ml-comments *ngIf="user && comicId" [user]="user" [comicId]="comicId" [comment]="comment"></ml-comments>
+</ion-content>

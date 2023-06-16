@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Comics:</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar comic o usuario ..." (keydown.enter)="search($event)" ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #pageTop>
+
+  <ion-refresher #refresher slot="fixed" (ionRefresh)="reloadComics(refresher)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card>
+    <ion-grid>
+
+      <ion-list>
+        <ion-item>
+          <ion-select aria-label="Genero" placeholder="Filtrar por genero:" (ionChange)="handleChange($event)">
+            <ng-container *ngFor="let g of genres">
+              <ion-select-option [value]="g">{{ g.name }}</ion-select-option>
+            </ng-container>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+    </ion-grid>
+
+    <ion-grid id="contenido" *ngFor="let comic of comics | comicsFilter:genreValue ">
+      <ml-comic-card [comic]="comic.node"></ml-comic-card>
+    </ion-grid>
+
+  </ion-card>
+</ion-content>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button color="principal">
+    <ion-icon name="arrow-up" (click)="pageScroller()"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

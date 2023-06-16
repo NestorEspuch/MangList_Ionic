@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sobre nosotros:</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img alt="Sobre nosotros" src="assets/utiles/Guts.png" />
+    <ion-card-header>
+      <ion-card-title>Un objetivo sencillo</ion-card-title>
+      <ion-card-title>Simplificar la lectura de comics.</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Leer comics actualmente es una de las modas más comunes en los
+      jóvenes y no tan jóvenes. Comprar manga puede ser muy tedioso, ya
+      que vienen de Japón y no siempre hay stock en tiendas físicas.
+      Nuestro objetivo es poder llegar a esas personas que se han quedado
+      sin stock de su manga favorito o que simplemente quieren coleccionar
+      una saga que no se distribuye en España. Como apasionado de este
+      mundo sé lo que significa querer comprar una saga y no poder, por lo
+      tanto, hemos abierto esta tienda online con el objetivo de poder cumplir
+      esos deseos y de promover el mundo del manga, el cual es
+      apasionante.
+
+      <ion-button id="presentNewsletter" expand="block" color="principal"
+        style="margin-top: 1em; margin-bottom: 4em;">Subscribirse a nuestro newsletter</ion-button>
+
+      <ion-alert color="principal" trigger="presentNewsletter" header="Unete a nuestro newsletter"
+        [buttons]="alertButtons" [inputs]="alertProfileInputs" (didDismiss)="addToNewsletter($event)"></ion-alert>
+
+        <address>
+        <ul>
+          <li>Vendedor</li>
+          <li>MangList España S.A.U.</li>
+          <li>Avda. María Zambrano 31, Edificio WTC Torre Este 6ª planta</li>
+          <li>50018, Alicante</li>
+          <li>Registro Mercantil de Alicante: A/28-788.909</li>
+          <li>Número de IVA español: ESA28788909</li>
+          <li>Inscrita en el Registro</li>
+          <li>Mercantil de Alicante.</li>
+          <li>Tomo 1.021.</li>
+          <li>Libro 617 de la Sección 3ªde Sociedades.</li>
+          <li>Folio 107. Hoja 10.921.</li>
+          <li>Inscripción 1ª</li>
+        </ul>
+      </address>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

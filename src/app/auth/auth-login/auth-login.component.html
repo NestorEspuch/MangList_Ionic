@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login:</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img src="assets/logo_MangList.png" style="width: 50px; box-shadow: none" alt="logo"></ion-img>
+    <h4 class="title">MangList</h4>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" required [(ngModel)]="userInfo.email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" name="password" required [(ngModel)]="userInfo.password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="principal" expand="block" [disabled]="loginForm.invalid">
+              <ion-icon name="log-in" slot="start"></ion-icon>
+              Iniciar Sesion
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="tertiary" expand="block" (click)="goRegister()">
+              <ion-icon name="document-text" slot="start"></ion-icon>
+              Registrarse
+            </ion-button>
+            <ion-button id="open-modal" expand="block">¿Has olvidado tu contraseña?</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    <ion-col size-lg="6" class="ion-align-items-center gradient-custom-2">
+      <ion-card-content class="text-white px-3 py-4 p-md-5 mx-md-4">
+        <h4 class="mb-4">Un objetivo sencillo: Simplificar la lectura de mangas.</h4>
+        <p class="small mb-0">
+          Leer manga actualmente es una de las modas más comunes en los jóvenes y no tan jóvenes. Comprar manga
+          puede ser muy tedioso, ya que vienen de Japón y no siempre hay stock en tiendas físicas. Nuestro
+          objetivo es poder llegar a esas personas que se han quedado sin stock de su manga favorito o que
+          simplemente quieren coleccionar una saga que no se distribuye en España. Como apasionado de este mundo
+          sé lo que significa querer comprar una saga y no poder, por lo tanto, hemos abierto esta tienda con el
+          objetivo de poder cumplir esos deseos y de promover el mundo del manga, el cual es apasionante.
+        </p>
+      </ion-card-content>
+    </ion-col>
+  </ion-card>
+
+
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar color="principal">
+          <ion-title>Recuperar Contraseña</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <form (ngSubmit)="mailPasswordRecovery()" aria-label="none">
+          <ion-item class="mb-3">
+            <ion-input type="email" class="form-control form-control-2" id="recipient-email"
+              placeholder="Email:"></ion-input>
+            <ion-label position="floating">El email es necesario.</ion-label>
+            <ion-label position="floating">El email no es correcto.</ion-label>
+          </ion-item>
+          <ion-item class="mb-3">
+            <ion-textarea class="form-control form-control-2" id="message-text"
+              placeholder="Escribe aquí tu explicación ..."></ion-textarea>
+            <ion-label position="floating">El texto es necesario.</ion-label>
+          </ion-item>
+          <ion-footer>
+            <ion-toolbar>
+              <ion-buttons slot="end">
+                <ion-button type="submit" class="button">Enviar mensaje</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-footer>
+        </form>
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
